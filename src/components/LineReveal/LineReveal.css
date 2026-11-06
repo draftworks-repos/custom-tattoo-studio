@@ -1,0 +1,22 @@
+.line-reveal {
+  display: flex;
+  flex-direction: column;
+}
+
+.line-reveal__mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.line-reveal__inner {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line-reveal__inner {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,45 @@
+.artists-section {
+  background-color: var(--ink-950);
+}
+
+.artists-section__header {
+  margin-bottom: clamp(48px, 7vw, 96px);
+  max-width: 720px;
+}
+
+.artists-section__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--cream);
+  margin-bottom: var(--space-4);
+}
+
+.artists-section__desc {
+  font-size: var(--fs-body);
+  color: var(--cream-soft);
+  line-height: 1.6;
+}
+
+.artists-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  padding-bottom: clamp(40px, 6vw, 80px);
+}
+
+@media (max-width: 1024px) {
+  .artists-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .artists-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}

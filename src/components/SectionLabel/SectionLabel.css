@@ -1,0 +1,21 @@
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-mute);
+  margin-bottom: var(--space-4);
+}
+
+.section-label__number {
+  color: var(--cream-soft);
+  letter-spacing: 0.15em;
+}
+
+.section-label__text {
+  color: var(--cream-soft);
+}

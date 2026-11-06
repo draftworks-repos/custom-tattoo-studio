@@ -1,0 +1,5 @@
+.transition-link {
+  display: inline-flex;
+  text-decoration: none;
+  color: inherit;
+}

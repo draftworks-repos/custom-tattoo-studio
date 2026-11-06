@@ -1,0 +1,105 @@
+.process-step {
+  background-color: var(--ink-800);
+  border: 1px solid var(--ink-600);
+  border-radius: var(--r-md);
+  padding: clamp(32px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 220px;
+  transition: transform var(--dur-2) var(--ease-out),
+              border-color var(--dur-2) var(--ease-out),
+              background-color var(--dur-2) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .process-step:hover {
+    border-color: var(--crimson-600);
+    transform: translateY(-4px);
+    background-color: var(--ink-700);
+  }
+
+  .process-step:hover .process-step__bg-num {
+    opacity: 0.09;
+    color: var(--crimson-400);
+  }
+}
+
+/* Big Faded Background Watermark Number */
+.process-step__bg-num {
+  position: absolute;
+  right: 20px;
+  bottom: 0px;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 12vw, 11rem);
+  font-weight: 900;
+  line-height: 0.75;
+  color: var(--cream);
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: opacity var(--dur-2) var(--ease-out),
+              color var(--dur-2) var(--ease-out);
+}
+
+.process-step__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.process-step__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-pill);
+  background-color: var(--crimson-900);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--crimson-600);
+  flex-shrink: 0;
+}
+
+.process-step__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.process-step__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.process-step__desc {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--cream-soft);
+  line-height: 1.6;
+  max-width: 42ch;
+}
+
+@media (max-width: 640px) {
+  .process-step {
+    padding: var(--space-6);
+  }
+
+  .process-step__bg-num {
+    right: 12px;
+    bottom: -4px;
+    font-size: 6.5rem;
+  }
+}

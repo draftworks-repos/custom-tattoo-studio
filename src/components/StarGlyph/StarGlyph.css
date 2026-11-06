@@ -1,0 +1,6 @@
+.star-glyph {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: transform var(--dur-1) var(--ease-out);
+}

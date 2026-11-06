@@ -1,0 +1,121 @@
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-block: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 10;
+  user-select: none;
+}
+
+.marquee-band {
+  width: 108vw;
+  margin-left: -4vw;
+  overflow: hidden;
+  padding-block: var(--space-4);
+  box-shadow: 0 10px 30px rgba(14, 8, 7, 0.6);
+  position: relative;
+  will-change: transform;
+}
+
+.marquee-band--1 {
+  background-color: var(--crimson-600);
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.marquee-band--2 {
+  background-color: var(--ink-800);
+  border-top: 1px solid var(--ink-600);
+  border-bottom: 1px solid var(--ink-600);
+  transform: rotate(2.2deg);
+  margin-top: -14px;
+  z-index: 1;
+}
+
+.marquee-band__inner {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-band__track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-band__track--left {
+  animation: marquee-scroll-left var(--marquee-duration, 28s) linear infinite;
+}
+
+.marquee-band__track--right {
+  animation: marquee-scroll-right var(--marquee-duration, 30s) linear infinite;
+}
+
+@media (hover: hover) {
+  .marquee-wrapper:hover .marquee-band__track {
+    animation-play-state: paused;
+  }
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-5);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: var(--fvs-chunky);
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+  text-transform: uppercase;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.marquee__glyph {
+  color: var(--cream);
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+.marquee__item--alt {
+  color: var(--cream);
+}
+
+.marquee__glyph--alt {
+  color: var(--crimson-400);
+}
+
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-band {
+    transform: none !important;
+  }
+  .marquee-band__track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

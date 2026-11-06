@@ -1,0 +1,116 @@
+.intro-section {
+  background-color: var(--ink-900);
+}
+
+.intro__container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(60px, 8vw, 120px);
+}
+
+.intro__top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.intro__statement {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: var(--fvs-chunky);
+  font-size: var(--fs-h2);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  max-width: 16ch;
+}
+
+.intro__word {
+  display: inline-block;
+  color: var(--cream-mute);
+  transition: color var(--dur-1) var(--ease-out);
+}
+
+.intro__media-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.intro__photo-frame {
+  width: 100%;
+  max-width: 440px;
+  transform: rotate(3deg);
+  transform-origin: center;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .intro__photo-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+}
+
+/* Clean Horizontally-Aligned 3-Column Stats */
+.intro__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--ink-600);
+  align-items: start;
+}
+
+.intro__stat-col {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .intro__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .intro__media-wrap {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .intro__photo-frame {
+    transform: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .intro__photo-frame .image-tile {
+    aspect-ratio: 16 / 9 !important;
+    width: 100%;
+  }
+
+  .intro__stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .intro__statement {
+    font-size: clamp(2rem, 8vw, 3rem);
+    max-width: 100%;
+  }
+
+  .intro__photo-frame {
+    transform: none;
+    max-width: 100%;
+  }
+
+  .intro__stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .intro__stat-col--2 {
+    padding-bottom: 0;
+  }
+}

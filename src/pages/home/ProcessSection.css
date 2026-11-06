@@ -1,0 +1,38 @@
+.process-section {
+  background-color: var(--ink-950);
+}
+
+.process__header {
+  margin-bottom: clamp(40px, 6vw, 70px);
+  max-width: 680px;
+}
+
+.process__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--cream);
+  margin-bottom: var(--space-3);
+}
+
+.process__subtitle {
+  font-size: var(--fs-body);
+  color: var(--cream-soft);
+  line-height: 1.6;
+}
+
+/* 2x2 Grid: Two Columns, Two Rows */
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+@media (max-width: 640px) {
+  .process__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+}

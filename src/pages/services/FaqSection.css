@@ -1,0 +1,37 @@
+.faq-section {
+  background-color: var(--ink-950);
+  border-top: 1px solid var(--ink-600);
+}
+
+.faq-section__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  max-width: 960px;
+}
+
+.faq-section__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.faq-section__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 900;
+  line-height: 0.95;
+  color: var(--cream);
+}
+
+.faq-section__subtitle {
+  font-size: var(--fs-body);
+  color: var(--cream-soft);
+  max-width: 56ch;
+}
+
+.faq-section__accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

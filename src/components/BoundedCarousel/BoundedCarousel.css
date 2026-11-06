@@ -1,0 +1,137 @@
+.bounded-carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Horizontal Axis */
+.bounded-carousel--x {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+}
+
+.bounded-carousel__row--x {
+  width: 100%;
+  overflow: visible;
+  display: flex;
+}
+
+.bounded-carousel__track--x {
+  display: flex;
+  gap: var(--space-5);
+  flex-shrink: 0;
+  will-change: transform;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.bounded-carousel--dragging,
+.bounded-carousel--dragging .bounded-carousel__track--x {
+  cursor: grabbing !important;
+}
+
+.bounded-carousel__item--x {
+  flex-shrink: 0;
+  height: clamp(240px, 32vw, 420px);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-md);
+}
+
+.bounded-carousel__item--x .image-tile {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--r-md);
+}
+
+.bounded-carousel__item--x img,
+.bounded-carousel__item--x .image-tile__img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Vertical Axis - Exactly 3 Columns on Desktop */
+.bounded-carousel--y {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  height: clamp(540px, 80vh, 840px);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background-color: var(--ink-800);
+  border: 1px solid var(--ink-600);
+  padding: 0 var(--space-4);
+}
+
+.bounded-carousel__row--y {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.bounded-carousel__track--y {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  will-change: transform;
+}
+
+.bounded-carousel__item--y {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.bounded-carousel__item--y .image-tile {
+  width: 100%;
+  height: 100%;
+}
+
+.bounded-carousel__item--y img,
+.bounded-carousel__item--y .image-tile__img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 1024px) {
+  .bounded-carousel--y {
+    grid-template-columns: repeat(2, 1fr);
+    height: 70vh;
+  }
+  /* Keep 2 carousels, hide the 3rd one */
+  .bounded-carousel__row--y:nth-child(n+3) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bounded-carousel--x {
+    gap: var(--space-4);
+  }
+  .bounded-carousel__track--x {
+    gap: var(--space-4);
+  }
+  .bounded-carousel__item--x {
+    height: clamp(200px, 45vw, 280px);
+  }
+  .bounded-carousel--y {
+    grid-template-columns: 1fr;
+    height: 60vh;
+  }
+  /* In mobile hide 2 carousels, keep one visible */
+  .bounded-carousel__row--y:nth-child(n+2) {
+    display: none !important;
+  }
+}

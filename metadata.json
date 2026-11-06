@@ -1,0 +1,6 @@
+{
+  "name": "INKED — Custom Tattoo Studio",
+  "description": "Custom tattoos by artists, for individuals. Specializing in fine line, black & grey, realism, traditional, and blackwork.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

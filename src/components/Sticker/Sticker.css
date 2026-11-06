@@ -1,0 +1,26 @@
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 16px;
+  background-color: var(--crimson-600);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--r-pill);
+  box-shadow: 0 4px 14px rgba(14, 8, 7, 0.45);
+  transform: rotate(var(--sticker-rotate, -6deg));
+  transform-origin: center;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker {
+    transform: none;
+  }
+}

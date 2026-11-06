@@ -1,0 +1,34 @@
+.image-tile {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ink-700);
+  border-radius: var(--r-md);
+  border: 1px solid var(--ink-600);
+  width: 100%;
+  height: 100%;
+}
+
+.image-tile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease-out),
+              transform var(--dur-3) var(--ease-out);
+}
+
+.image-tile--loaded .image-tile__img {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .image-tile:hover .image-tile__img {
+    transform: scale(1.04);
+  }
+}
+
+@media (max-width: 640px) {
+  .image-tile {
+    border-radius: 14px;
+  }
+}

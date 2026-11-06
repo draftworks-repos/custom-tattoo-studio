@@ -1,0 +1,66 @@
+.initial-loader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--ink-950);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Counter display using hero display typography */
+.initial-loader__counter {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: var(--fvs-chunky);
+  color: var(--cream);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  transform: translateY(-2%);
+}
+
+.initial-loader__num {
+  font-size: clamp(6.5rem, 19vw, 16rem);
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
+/* Subtle theme touch: signature crimson accent */
+.initial-loader__percent {
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: var(--crimson-400);
+  margin-left: clamp(4px, 1vw, 12px);
+  font-weight: 800;
+  display: inline-block;
+}
+
+.initial-loader .dot-crimson {
+  font-size: clamp(6.5rem, 19vw, 16rem);
+  color: var(--crimson-400);
+  margin-left: 2px;
+  line-height: 0.85;
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  .initial-loader__num {
+    font-size: clamp(5rem, 24vw, 7.5rem);
+  }
+
+  .initial-loader__percent {
+    font-size: clamp(2.5rem, 12vw, 3.8rem);
+  }
+
+  .initial-loader .dot-crimson {
+    font-size: clamp(5rem, 24vw, 7.5rem);
+  }
+}
