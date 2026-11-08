@@ -9,12 +9,16 @@ export const LineReveal = ({
   className = '',
   triggerOnScroll = true,
   dotAfter = false,
+  isReady = true, // set false to defer animation (e.g. wait for loader)
 }) => {
   const containerRef = useRef(null);
 
   useGSAP(
     () => {
       if (!containerRef.current) return;
+
+      // Defer until the caller signals ready (e.g. after the initial loader)
+      if (!isReady) return;
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const innerSpans = containerRef.current.querySelectorAll('.line-reveal__inner');
@@ -45,11 +49,11 @@ export const LineReveal = ({
           }
         );
       } else {
-        // Immediate or delay trigger (e.g. for hero entrance)
+        // Immediate trigger (e.g. hero entrance after loader)
         gsap.fromTo(innerSpans, { y: '110%' }, tweenVars);
       }
     },
-    { scope: containerRef, dependencies: [lines, triggerOnScroll] }
+    { scope: containerRef, dependencies: [lines, triggerOnScroll, isReady] }
   );
 
   return (

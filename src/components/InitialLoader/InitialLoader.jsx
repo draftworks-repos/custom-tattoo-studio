@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { images } from '../../data/images.js';
 import { artists } from '../../data/artists.js';
+import { useLoader } from '../../context/LoaderContext.jsx';
 import './InitialLoader.css';
 
 // Extract all unique image URLs used across the website
@@ -27,12 +28,14 @@ export const InitialLoader = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const loaderRef = useRef(null);
   const progressObj = useRef({ val: 0 });
+  const { setLoaderDone } = useLoader();
 
   useEffect(() => {
     // If reduced motion is preferred, immediately dismiss
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
       setIsLoaded(true);
+      setLoaderDone();
       return;
     }
 
@@ -96,6 +99,7 @@ export const InitialLoader = () => {
         delay: 0.28,
         onComplete: () => {
           setIsLoaded(true);
+          setLoaderDone();
           document.body.style.overflow = '';
         },
       });

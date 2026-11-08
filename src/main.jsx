@@ -9,8 +9,9 @@ import { useGSAP } from '@gsap/react';
 import './styles/tokens.css';
 import './styles/base.css';
 
-// Lenis Context & App
+// Lenis Context, Loader Context & App
 import { LenisProvider } from './context/LenisContext.jsx';
+import { LoaderProvider } from './context/LoaderContext.jsx';
 import App from './App.jsx';
 
 // Register GSAP plugins globally once
@@ -33,7 +34,9 @@ createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HashRouter>
       <LenisProvider>
-        <App />
+        <LoaderProvider>
+          <App />
+        </LoaderProvider>
       </LenisProvider>
     </HashRouter>
   </React.StrictMode>

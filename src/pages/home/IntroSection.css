@@ -42,6 +42,7 @@
   max-width: 440px;
   transform: rotate(3deg);
   transform-origin: center;
+  filter: brightness(0.9);
   transition: transform var(--dur-2) var(--ease-out);
 }
 

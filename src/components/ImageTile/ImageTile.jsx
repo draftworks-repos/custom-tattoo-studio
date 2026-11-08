@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import './ImageTile.css';
+import React, { useState } from "react";
+import "./ImageTile.css";
 
 export const ImageTile = ({
   src,
-  alt = '',
+  alt = "",
   width,
   height,
-  className = '',
+  className = "",
   aspectRatio,
-  tone = true,
+  tone = false,
   cursorView = false,
   fetchPriority,
-  loading = 'lazy',
+  loading = "lazy",
   ...props
 }) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div
-      className={`image-tile ${loaded ? 'image-tile--loaded' : ''} ${className}`}
+      className={`image-tile ${loaded ? "image-tile--loaded" : ""} ${className}`}
       style={aspectRatio ? { aspectRatio } : undefined}
-      data-cursor={cursorView ? 'view' : undefined}
+      data-cursor={cursorView ? "view" : undefined}
     >
       <img
         src={src}
@@ -31,7 +31,7 @@ export const ImageTile = ({
         decoding="async"
         fetchPriority={fetchPriority}
         onLoad={() => setLoaded(true)}
-        className={`image-tile__img ${tone ? 'tone' : ''}`}
+        className={`image-tile__img ${tone ? "tone" : ""}`}
         draggable={false}
         {...props}
       />
